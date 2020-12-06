@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chuna's Estética tienda online, compra productos, alisados, keratinas, botox, levanta muertos, todos productos de elaboración artesanal">
+    <meta name="description" content="Chuna's Estética, productos artesanales, alisados, keratina, botox, shampoo">
     <title>Chuna's Estética | Tienda Oficial</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -14,11 +16,11 @@
 
      <script src="https://kit.fontawesome.com/7e48d6c870.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="animation-complete">
     <header>         
         <input type="checkbox" id="btn-menu" />
         <label for="btn-menu"><i class="fa fa-bars"></i></label>
-        <nav class="menu">                   
+        <nav class="menu menu-sticky">                   
           <ul>
             <li class="submenu"><a href="#alisadosid">ALISADOS <i class="fa fa-caret-down"></i></a>
                 <ul>
@@ -72,7 +74,7 @@
                     <li><a href="#shmv">Shampoo matizador violet</a></li>
                 </ul>
               </li>
-              <li class="submenu"><a href="acondicionadorid">ACONDICIONADOR <i class="fa fa-caret-down"></i></a>
+              <li class="submenu"><a href="#acondicionadorid">ACONDICIONADOR <i class="fa fa-caret-down"></i></a>
                 <ul>
                     <li><a href="#acpos">Acondicionador post Alisado</a></li>
                     <li><a href="#shbio">Acondicionador con biotina</a></li>
@@ -86,14 +88,18 @@
               </li>
           </ul>
         </nav>
-  
+        <!-- position: sticky;
+        top:20px; -->
       </header>
+      <div class="sticky-completo">
       <img src="images/chunaslogo.jpg" alt="Logo" class="position-logo">
       <img src="images/vectorcarro.png" alt="Carrito" class="position-carrito">
       <a href="https://api.whatsapp.com/send?phone=5491157270467&text=mensaje" target="_blank" class="font-foot">
       <img src="images/whatesigue.png" alt="Logo whatsapp" class="position-wsp"></a>
-
+    </div>
+      <div class="line align-center-line"></div>   
       <h1 class="titulo">PRODUCTOS DESTACADOS</h1>
+            
       <div id="carouselExampleCaptions" class="carousel slide w-75 mx-auto" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -142,11 +148,11 @@
       </a>
       </div>
       <div class="line align-center-line"></div>
-      <h3 class="tittle-compras" id="nutricionid">NUTRICIÓN</h3>
-      <section class="products">
-        <div class="section-tittle">            
-        </div>
-    
+     
+
+       
+  <section>
+    <h3 id="nutricionid" class="tittle-compras">NUTRICIÓN</h1>
      
     <section class="contenedor-compras">
         <div class="contenedor-interior-compras" id="revividor"><img src="images/Productos/VACIO_2.jpg" alt="Producto" class="compras-img"><p class="compra-producto">Revividor capilar <p class="descripcion-producto">libre de formol con aceite de lino y risino</p> <p class="descripcion-producto">250ML por $450</p></p> <button type="submit" class="btn btn-Formato-special btn-lg alignbtn-compras">Comprar</button></div>
