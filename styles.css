@@ -45,7 +45,7 @@
   }
   
   .menu a:hover {
-    background: #2C3E50;
+    background: #E34C91;
   }
   
   .menu a i {
@@ -100,3 +100,178 @@
     position: absolute;
     top:10px;
 }
+.position-wsp , .position-carrito{
+    width:50px;
+    height:50px;  
+}
+.position-wsp{
+    position: absolute;
+    top: 10px;   
+    left:139px;
+}
+.position-carrito{
+    position: absolute;
+    top: 10px;
+    left:190px;   
+}
+
+.titulo{
+    font-family: 'Montserrat', sans-serif;
+    margin: 50px auto;
+    margin-left:10px;
+}
+
+.line{
+    width: 800px;
+    height: 5px;
+    background-color: black;
+    margin-left:10px;
+}
+
+.align-center-line{
+    margin: 100px auto;
+}
+
+
+.tittle-compras{
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    font-size: 50px;
+}
+/* 
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 5rem;
+    text-transform: capitalize;
+    letter-spacing: 3px;
+}
+
+.products-center{
+    width: 90vw;
+    margin: 0 auto;
+    max-width: 1170px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 2rem;
+}
+
+.img-container{
+    position: relative;
+    overflow:hidden;
+}
+
+.product h3{
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    letter-spacing: 2px;
+}
+.product h4{
+    margin-top: 0.7rem;
+    letter-spacing: 2px;
+    
+    text-align:center;
+} */
+
+.contenedor-compras {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 250px;
+    margin-right: 250px;
+  }
+  
+  .contenedor-interior-compras {
+    background-color:white;
+    width: 200px;
+    height: 400px;
+    margin: 10px auto;
+    padding: 25px;
+  }
+  
+  .contenedor-interior-compras:hover {
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  }
+  
+  .compras-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 5%;
+  }
+  
+  .text-final-compras1 {
+    font-family: "Poiret One", cursive;
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  .alignbtn-compras {
+    margin-left: 10px;
+  }
+  
+  .compra-producto,  .second-font-carousel {
+    font-family: "Poiret One", cursive;
+    font-weight: bold;
+  }
+  
+  .descripcion-producto {
+    font-family: "Poiret One", cursive;
+  }
+
+  .btn-Formato-special {
+    background-color: #00FFF3;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    transition: 0.2s;
+    margin-top: 5px;
+  }
+  
+  .btn-Formato-special:hover {
+    background-color: #00FFF3;
+    box-shadow: 0 0 10px #00FFF3, 0 0 20px #00FFF3, 0 0 40px #00FFF3;
+  }  
+
+  .position-nav{
+      position:fixed;
+      top:1px;
+  }
+
+  .titulo-fixed{
+    position:sticky;
+    top:10px;
+  }
+
+  .font-carousel{
+    font-family: 'Cinzel', serif;
+  }
+
+  .redsocial{
+    width: 40px;
+    height: 40px;
+  }
+
+  .boxfooter{
+    height: 200px;
+    background-color: black;
+    color: white;
+    padding:40px;      
+   
+  }
+
+  .font-foot{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+  }
+
+  .flex-final{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 12px;
+    font-family:  'Cinzel', serif;
+  }
+
+  
