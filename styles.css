@@ -355,6 +355,14 @@
 
   @media only screen and (max-width: 400px) {
 
+    .sticky-completo{     
+      position: static;
+      top: none;
+      z-index: none;
+      width: 252px;
+      height: 0px;
+    }
+
     .menu-sticky{
       position: fixed !important;
       top:1px !important;   
