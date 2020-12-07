@@ -88,15 +88,30 @@
               </li>
           </ul>
         </nav>
-        <!-- position: sticky;
-        top:20px; -->
+       
       </header>
       <div class="sticky-completo">
       <img src="images/chunaslogo.jpg" alt="Logo" class="position-logo">
-      <img src="images/vectorcarro.png" alt="Carrito" class="position-carrito">
+      <div class="box">
+        <a class="button" href="#popup1"><img src="images/vectorcarro.png" alt="Carrito" class="position-carrito"></a>
+    </div>      
       <a href="https://api.whatsapp.com/send?phone=5491157270467&text=mensaje" target="_blank" class="font-foot">
       <img src="images/whatesigue.png" alt="Logo whatsapp" class="position-wsp"></a>
     </div>
+
+    <div id="popup1" class="overlay">
+      <div class="popup">
+          <h2>TUS COMPRAS</h2>
+          <a class="close" href="#">&times;</a>
+          <div class="content">
+              Productos: <br>
+              Total........ $
+              <button type="submit" class="btn btn-Formato-special btn-lg alignbtn-compras">Comprar</button>
+          </div>
+      </div>
+  </div>
+    
+
       <div class="line align-center-line"></div>   
       <h1 class="titulo">PRODUCTOS DESTACADOS</h1>
             
@@ -280,7 +295,8 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
               integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
             </script>
-          
+     
+    <script src="productos.js"></script>
     <script src="archivoestilo.js"></script>
 </body>
 </html>
