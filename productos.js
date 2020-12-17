@@ -68,28 +68,35 @@ function Producto(id, nombre, descripcion, cantidad, precio, imagen){
          producto24, producto25, producto26, producto27, producto28, producto29, producto30, producto31,
          producto32, producto33, producto34, producto35,  producto36,  producto37,  producto38,  producto39]
     console.table(array);
-        
-    agregar_producto();
+
+    
 
 
+    // Producto36.precio
 
-    function agregar_producto(Producto){
-        // while(true){}
-        let producto = prompt("Ingrese id de producto a comprar: ");
-        console.log(Number(producto));
-        if(producto == Producto){
-            total = Producto.precio + producto;
-        }else{
-            alert("No existe producto")
-        }
+    // agregar_producto();
+
+
+    // const boton = document.querySelector('#boton')
+    // boton.addEventListener('click', function(){
+    // alert('pt de curso ')
+    // } )
+
+
+    // function agregar_producto(Producto){        
+    //     if(producto == Producto){
+    //         total = Producto.precio + producto;
+    //     }else{
+    //         alert("No existe producto")
+    //     }
 
         // let subtotal = 0;
         // total = Producto.precio + subtotal;    
         
-    }
+    // }
     
     
     
-    function quitar_producto(Producto){
+    // function quitar_producto(Producto){
     
-    }
+    // }

@@ -288,7 +288,7 @@
     transition: all 0.3s ease-out;
   }
   .button:hover {
-    background: #06D85F;
+    background: #00FFF3;
   }
   
   .overlay {
@@ -333,9 +333,9 @@
     text-decoration: none;
     color: #333;
   }
-  .popup .close:hover {
+  /* .popup .close:hover {
     /* color: #06D85F; */
-  }
+  /* }  */
   .popup .content {
     max-height: 30%;
     overflow: auto;
