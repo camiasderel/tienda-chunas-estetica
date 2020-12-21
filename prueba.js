@@ -1,18 +1,18 @@
-const carrito = document.querySelector("#carrito");
+// const carrito = document.querySelector("#carrito");
 const listacarrito =document.querySelector("#listacarrito tbody");
 const listaProductos = document.querySelector("#lista-carrito");
 
 let articulosCarrito = [];
 
-listaProductos.addEventListener('click', agregarProducto);
+listaProductos.addEventListener('click', agregarProducto)
 
 function agregarProducto(e){
     e.preventDefault();//Evitando la accion por default de ese boton. 
    if(e.target.classList.contains("alignbtn-compras")){
-       //Selecciono el div del producto sobre el cual se hizo click
-       const productoSeleccionado = e.target.parentElement.parentElement;
+       //Selecciono el div del producto sobre el cual se hizo click       
        //Selecciono y me voy al hijo y luego al padre
-   };
+   }
+   const productoSeleccionado = e.target.parentElement.parentElement
    console.log(productoSeleccionado.querySelector('img').src);
    console.log(productoSeleccionado.querySelector('.compra-producto').textContent)
    obtenerDatosPorducto(productoSeleccionado)
@@ -39,14 +39,14 @@ function obtenerDatosPorducto(producto){
         
     }
 
-    articulosCarrito = [...productos]
+   let articulosCarrito = [...productos]
 }
 
 // agregar producto al carrito
 
 articulosCarrito = [...articulosCarrito, productoAgregado];
 // articulosCarrito.push(producto);
-function insertarProducto();
+function insertarProducto()
 console.log(articulosCarrito)
 
 
