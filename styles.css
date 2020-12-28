@@ -211,7 +211,7 @@
     font-weight: bold;
   }
   
-  .descripcion-producto {
+  .descripcion-producto, .precio-producto {
     font-family: "Poiret One", cursive;
   }
 
@@ -312,7 +312,7 @@
     padding: 20px;
     background: #fff;
     border-radius: 5px;
-    width: 30%;
+    width: 40%;
     position: relative;
     transition: all 5s ease-in-out;
    
@@ -340,6 +340,12 @@
     max-height: 30%;
     overflow: auto;
   }
+
+  .spacing-card{
+    padding: 15px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+  }
   
   @media screen and (max-width: 700px){
     .box{
@@ -349,6 +355,26 @@
       width: 70%;
     }
   }
+
+  /*agregado en js */
+  .align-car{
+    font-family: "Poiret One", cursive;
+    font-weight: bold;
+    margin-left:  23px;
+  }
+
+  .align-img-car{
+    margin-left:  20px;
+  }
+
+  /* .deleteProduct{
+    width:8px;
+    background-color:#00FFF3 ;
+    border-radius: 50%;
+    color:#000;
+    font-weight: bold;
+  } */
+   /*agregado en js final */
 /*Fin chango*/
 
 

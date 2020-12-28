@@ -1,94 +1,117 @@
-// const carrito = document.querySelector("#carrito");
-const listacarrito =document.querySelector("#listacarrito tbody");
-const listaProductos = document.querySelector("#lista-carrito");
+//Declaraciones. 
+const car = document.querySelector(".listCarrito");//Carro
+const carInside = document.querySelector('#lista-de-carrito tbody');//Dentro de carro la lista vacia. 
+const listProducts = document.querySelector("#lista-carrito");//Me traigo la lista de products del section del idlista-carrito
+let articleCar = [];
 
-let articulosCarrito = [];
+listProducts.addEventListener('click', addProduct);//Hacer click en el IDlista-carrito que es el section de productos
+carrito.addEventListener('click', deleteProduct);
 
-listaProductos.addEventListener('click', agregarProducto)
 
-function agregarProducto(e){
-    e.preventDefault();//Evitando la accion por default de ese boton. 
-   if(e.target.classList.contains("alignbtn-compras")){
-       //Selecciono el div del producto sobre el cual se hizo click       
-       //Selecciono y me voy al hijo y luego al padre
-   }
-   const productoSeleccionado = e.target.parentElement.parentElement
-   console.log(productoSeleccionado.querySelector('img').src);
-   console.log(productoSeleccionado.querySelector('.compra-producto').textContent)
-   obtenerDatosPorducto(productoSeleccionado)
-   //Sobre que se hace click e.target para detectarlo//Probando. 
+/*Agregar producto*/
+function addProduct(e){//Cuando se haga el evento click se ejecuta esta funcion. e para el default para las acciones del Event
+    e.preventDefault();//Evitando la accion por default de ese botón.(Event)
+    if(e.target.classList.contains('alignbtn-compras')){//Agarro la clase en la cual esta el botón
+        const productSelect = (e.target.parentElement);//Me posiciono en el padre del item seleccionado 
+        console.log(productSelect.querySelector('.precio-producto').textContent);//vemos cuando hacemos click el precio de lo que hacemos click
+        
+        getProduct(productSelect);//llamamos a la funcion y le pasamos los datos. 
+    };   
+}
+/*Deletiar producto*/
+function deleteProduct(e){
+    if(e.target.classList.contains('deleteProduct')){
+        const productId = e.target.getAttribute('data-id');
+        articleCar = articleCar.filter(product => product.id !== productId)//filtramos y nos quedamos con todos los elementos que no tengan ese id
+       
+        insertProducto();
+    }
 }
 
-/**Info extraccion producto seleccionado */
-function obtenerDatosPorducto(producto){    
-
-    const productoAgregado = {
-        imagen: producto.querySelector('img').src,
-        nombre: producto.querySelector('.compra-producto').textContent,
-        precio: producto.querySelector('.descripcion-producto'),
-        // id: producto.querySelector(''),getAttribute("data-id")
-        cantidad: 1
+function getProduct(product){
+    //info del product seleccionado, llenado de datos pasados a traves de productSelect
+    const datproduct = {//Creamos un objeto para rellenar los datos extraidos por productSelect
+        imagen: product.querySelector('.compras-img').src,//Traemos la imagen, y ponemos el atributo que queremos seleccionar
+        nombre: product.querySelector('.compra-producto').textContent,
+        precio: product.querySelector('.precio-producto').textContent,
+        id: product.querySelector('button').getAttribute('data-id'),//Del btn traemos el atributo del ID. 
+        cantidad: 1//Cantidad por defecto
     }
-    const existe = articuloCarrito.some(producto => producto.nombre === productoAgregado.nombre)
-    const productos = articulosCarrito.map()
-    if(producto.nombre === productoAgregado.nombre){
-       producto.cantidad++;       
-       return producto;
+
+    const ProductExisting = articleCar.some(function(product){//verirficando si el producto esta en el carro
+        return product.id === datproduct.id;//verificamos que el id del producto agregado no sea igual al que esta
+    })
+    //agregar producto existente
+    if(ProductExisting){
+        const productos = articleCar.map(product =>{
+            if(product.id === datproduct.id){
+                product.cantidad++;//si coincide aumento su propiedad en una cantidad ++1 y si no.. seguimos
+                product.precio = Number(datproduct.precio.slice(1))*product.cantidad;//precio nuevo,(YA QUE ESTA EL SIGNO $) slice elige donde inicia, el parametro empieza en 0 1 2, Se QUEDA CON EL PRIMER CARACTER EN ADELANTE. 
+                return product;
+            }else{
+                return product;
+            }
+        });//recorre arreglo parecido al forechnuevo y me lo genera
+        articleCar =[...productos]
     }else{
-        return producto;
-        
+        //agregar producto inexistente
+        articleCar.push(datproduct);
     }
 
-   let articulosCarrito = [...productos]
+ //Agregado al car
+    insertProducto();
+    
 }
 
-// agregar producto al carrito
+function insertProducto(){
 
-articulosCarrito = [...articulosCarrito, productoAgregado];
-// articulosCarrito.push(producto);
-function insertarProducto()
-console.log(articulosCarrito)
-
-
-// agregado al html
-function insertarProducto(){
-
-    borrarHTML();
-
-    articulosCarrito.forEach(producto =>{
-        // destructuring sobre objeto producto
-        const {nombre, imagen, precio, cantidad } = producto;
-        const row = document.createElement('tr');
-        row.innerHTML = `
+    deleteHTML();//VACIOCAR
+    initHTML();
+    articleCar.forEach(product => {//Recorrer el array y que nos brinde la info 
+        //Prueba destructuring sobre el obj producto 
+        const {nombre, imagen, precio, cantidad, id} = product;//HACiendo el destructuring se pueden usar las variables luego
+        const row = document.createElement('tr');//Creamos un row para crear un elemento tr 
+        row.innerHTML =  ` 
         <td>
-            <img src=$"{imagen}" width=100>
+            <img src="${imagen}" width="50px" height="50px" class="align-img-car">
+        </td>     
+
+        <td>
+            <p class="align-car">${nombre}</p>
+        </td>
+
+        <td>
+            <p class="align-car">${precio}</p>
+        </td>
+
+        <td>
+            <p class="align-car">${cantidad}</p>
         </td>
         <td>
-        ${nombre}
+            <a href="#" class=deleteProduct data-id="${id}"> X </a>
         </td>
-          <td>
-          ${precio}
-          </td>
-          <td>
-          ${cantidad}
-          </td>
-          <td>
-          <a href="#" class="borrar-producto"> X</a>
-          </td>
-
-          `
-
-          contenedorCarrito.appendChild(row);
         
-        
-        
+        `
+        carInside.appendChild(row);//agregamos el row al appenChild
     })
 
-    function borrarHTML(){
-         contenedorCarrito.innerHTML ='';
-        // while(contendorCarrito.firstChild){
-        //     contenedor.Carrito.removeChild(contenedorCarrito.firstChild)
+}
 
-        // }
+function deleteHTML(){//COMO ESTO BORRA LA DESC DEL CARRO DE AGREGO LA FUNCION INITHTML
+    // carInside.innerHTML = '';//VACIOCAR
+    while(carInside.firstChild){
+        carInside.removeChild(carInside.firstChild)
     }
 }
+
+function  initHTML(){//Como deletHTML borra la desc del carro se agrego la funcion tal.
+    const row = document.createElement('tr');
+    carInside.innerHTML = `
+    <td class="spacing-card">IMAGEN</td> 
+    <td class="spacing-card">NOMBRE</td>
+    <td class="spacing-card">PRECIO</td>
+    <td class="spacing-card">CANTIDAD</td>
+    ` 
+    carInside.appendChild(row);
+}
+
