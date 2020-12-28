@@ -356,6 +356,15 @@
     }
   }
 
+  .btn-group-car{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+.btn-popup{
+  margin: 15px auto;
+}
   /*agregado en js */
   .align-car{
     font-family: "Poiret One", cursive;

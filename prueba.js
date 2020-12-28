@@ -2,10 +2,16 @@
 const car = document.querySelector(".listCarrito");//Carro
 const carInside = document.querySelector('#lista-de-carrito tbody');//Dentro de carro la lista vacia. 
 const listProducts = document.querySelector("#lista-carrito");//Me traigo la lista de products del section del idlista-carrito
+const btncarDeleteComplete = document.querySelector('#vaciar-carrito');//Traigo el boton "vaciar carrito"
 let articleCar = [];
 
 listProducts.addEventListener('click', addProduct);//Hacer click en el IDlista-carrito que es el section de productos
-carrito.addEventListener('click', deleteProduct);
+btncarDeleteComplete.addEventListener('click', carDeleteComplete);
+// car.addEventListener('click', deleteProduct);//quedapendiente
+document.addEventListener('DOMContentLoaded', () => {
+    articleCar =  JSON.parse(localStorage.getItem('car')) || [];//guarda el carrito JSON obtenelo y guardalo en car, y luego our array vacio
+    insertProducto();
+})
 
 
 /*Agregar producto*/
@@ -18,15 +24,16 @@ function addProduct(e){//Cuando se haga el evento click se ejecuta esta funcion.
         getProduct(productSelect);//llamamos a la funcion y le pasamos los datos. 
     };   
 }
-/*Deletiar producto*/
-function deleteProduct(e){
-    if(e.target.classList.contains('deleteProduct')){
-        const productId = e.target.getAttribute('data-id');
-        articleCar = articleCar.filter(product => product.id !== productId)//filtramos y nos quedamos con todos los elementos que no tengan ese id
+/*Deletiar producto QUEDA PENDIENTE*/
+// function deleteProduct(e){
+    
+//         if(e.target.classList.contains('deleteProduct')){
+//       const productId = e.target.getAttribute('data-id');
+//      articleCar = articleCar.filter(product => product.id !== productId)//filtramos y nos quedamos con todos los elementos que no tengan ese id
        
-        insertProducto();
-    }
-}
+//       insertProducto();//Como borramos, luego de nuevo iniciamos la funcion de carga los productos. 
+//   }
+// }
 
 function getProduct(product){
     //info del product seleccionado, llenado de datos pasados a traves de productSelect
@@ -46,7 +53,7 @@ function getProduct(product){
         const productos = articleCar.map(product =>{
             if(product.id === datproduct.id){
                 product.cantidad++;//si coincide aumento su propiedad en una cantidad ++1 y si no.. seguimos
-                product.precio = Number(datproduct.precio.slice(1))*product.cantidad;//precio nuevo,(YA QUE ESTA EL SIGNO $) slice elige donde inicia, el parametro empieza en 0 1 2, Se QUEDA CON EL PRIMER CARACTER EN ADELANTE. 
+                product.precio = `$${Number(datproduct.precio.slice(1))*product.cantidad}`;//precio nuevo,(YA QUE ESTA EL SIGNO $) slice elige donde inicia, el parametro empieza en 0 1 2, Se QUEDA CON EL PRIMER CARACTER EN ADELANTE. 
                 return product;
             }else{
                 return product;
@@ -95,6 +102,18 @@ function insertProducto(){
         carInside.appendChild(row);//agregamos el row al appenChild
     })
 
+    saveStorage();
+}
+
+function saveStorage(){
+    localStorage.setItem("car", JSON.stringify(articleCar))//seleccionamos el item, luego lo pasamos a string de JSON, y luego añadimos el array de carro.
+}
+
+
+function carDeleteComplete(){
+    deleteHTML();//LLamamos a la funcion encargada de elimar, 
+    let articleCar = [];//Luego traemos al carrito de nuevo que maneja todo 
+    saveStorage();   
 }
 
 function deleteHTML(){//COMO ESTO BORRA LA DESC DEL CARRO DE AGREGO LA FUNCION INITHTML
