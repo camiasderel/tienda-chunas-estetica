@@ -170,6 +170,11 @@
     font-size: 50px;
 }
 
+.btnMayorista{
+  font-size: 20px; 
+  
+}
+
 .contenedor-compras {
     display: flex;
     flex-direction: row;

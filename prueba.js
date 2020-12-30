@@ -8,10 +8,10 @@ let articleCar = [];
 listProducts.addEventListener('click', addProduct);//Hacer click en el IDlista-carrito que es el section de productos
 btncarDeleteComplete.addEventListener('click', carDeleteComplete);
 // car.addEventListener('click', deleteProduct);//quedapendiente
-document.addEventListener('DOMContentLoaded', () => {
-    articleCar =  JSON.parse(localStorage.getItem('car')) || [];//guarda el carrito JSON obtenelo y guardalo en car, y luego our array vacio
-    insertProducto();
-})
+// document.addEventListener('DOMContentLoaded', () => {
+//     articleCar =  JSON.parse(localStorage.getItem('car')) || [];//guarda el carrito JSON obtenelo y guardalo en car, y luego our array vacio
+//     insertProducto();
+// })
 
 
 /*Agregar producto*/
